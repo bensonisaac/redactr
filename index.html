@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redactr - Word Scrambler</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- <header>
+        <h2>Redactr</h2>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Use Cases</a>
+            <a href="">Redact Now</a>
+        </nav>
+    </header> -->
+    <main>
+        <form id="redactForm">
+            <label for="original">Original Text: <br>
+                <textarea type="text" name="original" id="original" rows="4" cols="50" required></textarea>
+            </label><br>
+            <label for="words">Words to Redact: <br>
+                <input type="text" name="words" id="words" required />
+            </label><br>
+
+            <button type="submit" id="redact">Redact Now</button>
+        </form>
+
+        <section>
+            <h3>Redacted Text</h3>
+            <div id="redatedText"></div>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
