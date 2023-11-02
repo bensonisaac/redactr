@@ -144,3 +144,14 @@ section {
   height: auto;
   margin: auto;
 }
+
+@media (max-width: 767px) {
+  #redactForm {
+  width: 100%;
+  
+}
+
+section {
+  width: 100%;
+}
+}
