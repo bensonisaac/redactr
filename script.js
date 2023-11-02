@@ -10,6 +10,8 @@ const redactFunction = () => {
   let redactTextContainer = document.getElementById("redatedTextContainer");
   let redactOptionValue = document.getElementById("choice").value;
   let originalTextValue = originalText.value;
+  let textError = document.getElementById("textError");
+  let wordError = document.getElementById("wordError");
 
   // gets the words and turn them into strings
   // using map to trim for extra whitespaces
@@ -24,9 +26,10 @@ const redactFunction = () => {
 
   // check if they are upto 10 or empty
   if (!redact || redactWords.length <= 10) {
-    
-    document.getElementById("textError").innerText =
-      "Text should be more than 10.";
+    textError.innerText = "Text should be more than 10.";
+    setTimeout(() => {
+      textError.innerText = "";
+    }, 2000);
   } else {
     if (wordsToRedactValue) {
       // iterates through the word
@@ -43,11 +46,19 @@ const redactFunction = () => {
       ${redact}</p>
       `;
         } else {
-          document.getElementById(
-            "wordError"
-          ).innerText = `${word} is not found`;
-          return;
+          if (word.length > 1) {
+            let words = word.split(",")
+            wordError.innerText += `${words} is not found `;
+
+            return;
+          } else {
+            wordError.innerText = `${word} is not found`;
+            return;
+          }
         }
+        setTimeout(() => {
+          wordError.innerText = "";
+        }, 2000);
       });
 
       // check the redacted words and let the user copies it if they
@@ -67,9 +78,10 @@ const redactFunction = () => {
         });
       }
     } else {
-      document.getElementById(
-        "wordError"
-      ).innerText = `Words to be blurred out is empty`;
+      wordError.innerText = `Words to be blurred out is empty`;
+      setTimeout(() => {
+        wordError.innerText = "";
+      }, 2000);
     }
   }
 };
